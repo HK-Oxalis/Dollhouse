@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
         //Rotate walk input because CharacterController.Move uses absolute position, not local
         Vector3 rotatedWalk = Quaternion.Euler(0, headTransform.localEulerAngles.y, 0) * walkInput;
         
-        controller.Move(rotatedWalk  * (walkSpeed * Time.deltaTime));
+        controller.SimpleMove(rotatedWalk  * (walkSpeed * Time.deltaTime));
     }
     
     public void OnLook(InputAction.CallbackContext context)

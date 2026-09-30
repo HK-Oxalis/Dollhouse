@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   cameraSensitivity: 5
-  walkSpeed: 5
+  walkSpeed: 2000
   headTransform: {fileID: 5214648664303749661}
 --- !u!1 &4779090649279574041
 GameObject:
