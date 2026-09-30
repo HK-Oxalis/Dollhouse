@@ -416,6 +416,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1144691803357480986, guid: 65060a7327ee11b4e99bce12420eb1f5, type: 3}
+      propertyPath: cameraSensitivity
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1280149667405387642, guid: 65060a7327ee11b4e99bce12420eb1f5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
