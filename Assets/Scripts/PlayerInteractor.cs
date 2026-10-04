@@ -1,19 +1,18 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PlayerInteractor : MonoBehaviour
 {
+    [SerializeField] UIDocument crosshairUI;
+    
     private Transform currentInteractable;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private Image crosshair;
 
-    // Update is called once per frame
-    void Update()
+    public void Start()
     {
-        
+        crosshair = crosshairUI.rootVisualElement.Q<Image>("crosshair");
     }
 
     public void CheckInteractables(InputAction.CallbackContext context){
@@ -23,7 +22,12 @@ public class PlayerInteractor : MonoBehaviour
 
         if(Physics.Raycast(transform.position, transform.forward, out hit_Object, 10, layerMask)){
             currentInteractable = hit_Object.transform;
-        };
+            crosshair.style.opacity = 1;
+        }
+        else
+        {
+            crosshair.style.opacity = 0;
+        }
 
     }
 
