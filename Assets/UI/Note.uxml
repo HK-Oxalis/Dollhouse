@@ -1,0 +1,7 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; margin-top: 10%; margin-right: 10%; margin-bottom: 10%; margin-left: 10%; align-items: center;">
+        <ui:Image name="BackgroundImage" source="project://database/Resources/unity_builtin_extra?fileID=10906&amp;guid=0000000000000000f000000000000000&amp;type=0#Background" style="align-items: center;">
+            <ui:Label text="Label" name="noteText"/>
+        </ui:Image>
+    </ui:VisualElement>
+</ui:UXML>

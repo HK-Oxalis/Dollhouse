@@ -20,7 +20,7 @@ public class PlayerInteractor : MonoBehaviour
         int layerMask = 1 << 7; 
         RaycastHit hit_Object;
 
-        if(Physics.Raycast(transform.position, transform.forward, out hit_Object, 10, layerMask)){
+        if(Physics.Raycast(transform.position, transform.forward, out hit_Object, 2, layerMask)){
             currentInteractable = hit_Object.transform;
             crosshair.style.opacity = 1;
         }
@@ -32,6 +32,11 @@ public class PlayerInteractor : MonoBehaviour
     }
 
     public void OnInteractionAttempt(InputAction.CallbackContext context){
+
+        if (context.started == false)
+        {
+            return;
+        }
         
         IInteractable interaction = currentInteractable.GetComponent<IInteractable>();
 

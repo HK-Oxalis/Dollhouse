@@ -496,7 +496,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457b3c481191b574591c3e751ad8d1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IntaractionComponent
-  currentlyInteractable: 1
 --- !u!114 &1644311678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,6 +508,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f74f3b91a12924296d5b0aee2ff178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NoteComponent
+  noteText: Hello this is a note
+  uiTree: {fileID: 9197481963319205126, guid: 1afca138fe69ea64b9d9157720b5393c, type: 3}
+  panelSettings: {fileID: 11400000, guid: 6224500d663110440ad8e8f4568c58f4, type: 2}
 --- !u!1001 &2032568207
 PrefabInstance:
   m_ObjectHideFlags: 0
