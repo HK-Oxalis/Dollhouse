@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fcdbf94aa9c60d498d767200ab5d174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BookRiddleManager
+  interactSound: {fileID: 8300000, guid: f9a2d4c582e025446befa5f0464b5a27, type: 3}
+  OpenDoorSound: {fileID: 8300000, guid: a2954e5df75bbd5498211bdfa3c489ee, type: 3}
   books:
   - {fileID: 1114448015}
   - {fileID: 916078194}
@@ -1540,6 +1542,7 @@ MonoBehaviour:
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
+  interactSound: {fileID: 0}
 --- !u!65 &916078195
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2217,6 +2220,7 @@ MonoBehaviour:
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
+  interactSound: {fileID: 0}
 --- !u!65 &1112502548
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2347,6 +2351,7 @@ MonoBehaviour:
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
+  interactSound: {fileID: 0}
 --- !u!65 &1114448016
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2833,6 +2838,7 @@ MonoBehaviour:
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
+  interactSound: {fileID: 0}
 --- !u!65 &1345211373
 BoxCollider:
   m_ObjectHideFlags: 0
