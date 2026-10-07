@@ -15,6 +15,7 @@ public class PlayerSpotted : MonoBehaviour
     private void OnPlayerSpotted()
     {
         //Right now, this message is used to show when the player has been spotted by the monster
+        //Death is being added later
         Debug.Log("You've been spotted!");
     }
 }

@@ -23,14 +23,11 @@ public class MonsterVision : MonoBehaviour
     private Transform playerTransform;
     private Vector3 playerPosition;
     private Collider playerCollider;
-
-    //Variable for checking if the player is visible
-    private bool seesPlayer;
-
+    
+    //Delete when proper trigger implemented
     private bool monsterSearching;
 
-    private float timer;
-
+    //Create stopwatch used to time monster's searching period
     private Stopwatch stopwatch = new Stopwatch();
     private void Start()
     {
@@ -57,9 +54,11 @@ public class MonsterVision : MonoBehaviour
 
     private IEnumerator MonsterLook()
     {
+        //Resets stopwatch in case it was already started earlier
         stopwatch.Reset();
+        //Start timing monster's search period
         stopwatch.Start();
-        seesPlayer = false;
+        //Monster searches for 3 seconds if the player isn't visible
         while (stopwatch.Elapsed < TimeSpan.FromSeconds(3))
         {
             //Create raycast between monster and player to represent monster's sightline
@@ -76,12 +75,13 @@ public class MonsterVision : MonoBehaviour
                 {
                     //Invoke event for the PlayerSpotted script to handle detection
                     MonsterSeesPlayer?.Invoke();
+                    //End search period early because player wasn't seen
                     yield break;
                 }
             }
             yield return null;
         }
-
+//If the timer runs out, the player was hidden and the monster stops searching
         if (stopwatch.Elapsed >= TimeSpan.FromSeconds(3))
         { 
             Debug.Log("Player wasn't seen");
