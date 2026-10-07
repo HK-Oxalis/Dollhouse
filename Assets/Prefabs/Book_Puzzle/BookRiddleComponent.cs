@@ -7,8 +7,9 @@ public class BookRiddleComponent : MonoBehaviour, IInteractable
     [SerializeField] private float rotationSpeed = 40;
     [SerializeField] private int rotationDegrees = 30;
     public UnityEvent<BookRiddleComponent> OnInteract;
-
+    public AudioClip interactSound;
     
+    private AudioSource audioSource;
     
     private bool isMoving = false;
     private bool movingForward = true;
@@ -17,6 +18,8 @@ public class BookRiddleComponent : MonoBehaviour, IInteractable
     public void Awake()
     {
         if(OnInteract == null){ OnInteract = new UnityEvent<BookRiddleComponent>(); }
+        
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     public void Update()
@@ -51,6 +54,8 @@ public class BookRiddleComponent : MonoBehaviour, IInteractable
     public void Interact()
     {
         OnInteract.Invoke(this);
+        
+        audioSource.PlayOneShot(interactSound);
         
         isMoving = true;
     }
