@@ -3,16 +3,22 @@ using System;
 
 public class BookRiddleManager : MonoBehaviour
 {
+    [SerializeField] private AudioClip interactSound;
+    [SerializeField] private AudioClip OpenDoorSound;
     [SerializeField] private BookRiddleComponent[] books;
+    [SerializeField] private Animator doorAnimator;
 
+    private AudioSource audioSource;
     private int currentBookIndex;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
         foreach (BookRiddleComponent book in books)
         {
             book.OnInteract.AddListener(OnBookInteracted);
+            book.interactSound = interactSound;
         }
     }
 
@@ -25,6 +31,11 @@ public class BookRiddleManager : MonoBehaviour
             //Incorrect input, reset puzzle
             Debug.Log("Puzzle failed, resetting");
             currentBookIndex = 0;
+            foreach (BookRiddleComponent otherBook in books)
+            {
+                otherBook.ReturnToStart();
+            }
+            
             return;
         }
 
@@ -33,6 +44,9 @@ public class BookRiddleManager : MonoBehaviour
         {
             //Puzzle completed
             Debug.Log("Puzzle complete!");
+            
+            doorAnimator.SetTrigger("Open");
+            audioSource.PlayOneShot(OpenDoorSound);
         }
     }
 }

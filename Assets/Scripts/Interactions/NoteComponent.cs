@@ -34,4 +34,10 @@ public class NoteComponent : MonoBehaviour, IInteractable
             noteLabel.text = noteText;
         }
     }
+    
+    public void CancelInteraction()
+    {
+        noteShowing = false;
+        Destroy(uiObject);
+    }
 }
