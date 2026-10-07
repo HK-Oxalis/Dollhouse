@@ -42,7 +42,7 @@ public class MonsterVision : MonoBehaviour
 
     private void Update()
     {
-        //Check whether the monster can see the player when space is pressed
+        //Check whether the monster can see the player when space is pressed [testing purposes]
         if (Keyboard.current.spaceKey.wasPressedThisFrame && !monsterSearching)
         { 
             monsterSearching = true;
