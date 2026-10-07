@@ -26,6 +26,10 @@ public class PlayerInteractor : MonoBehaviour
         }
         else
         {
+            
+            IInteractable interaction = currentInteractable?.GetComponent<IInteractable>();
+            interaction?.CancelInteraction();
+            
             currentInteractable = null;
             crosshair.style.opacity = 0;
         }

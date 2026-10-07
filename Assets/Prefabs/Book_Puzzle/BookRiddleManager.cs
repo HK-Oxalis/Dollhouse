@@ -4,6 +4,7 @@ using System;
 public class BookRiddleManager : MonoBehaviour
 {
     [SerializeField] private BookRiddleComponent[] books;
+    [SerializeField] private Animator doorAnimator;
 
     private int currentBookIndex;
     
@@ -25,6 +26,11 @@ public class BookRiddleManager : MonoBehaviour
             //Incorrect input, reset puzzle
             Debug.Log("Puzzle failed, resetting");
             currentBookIndex = 0;
+            foreach (BookRiddleComponent otherBook in books)
+            {
+                otherBook.ReturnToStart();
+            }
+            
             return;
         }
 
@@ -33,6 +39,8 @@ public class BookRiddleManager : MonoBehaviour
         {
             //Puzzle completed
             Debug.Log("Puzzle complete!");
+            
+            doorAnimator.SetTrigger("Open");
         }
     }
 }

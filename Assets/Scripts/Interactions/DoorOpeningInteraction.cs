@@ -20,4 +20,8 @@ public class DoorOpeningInteraction : MonoBehaviour, IInteractable
         Destroy(this);
 
     }
+    
+    public void CancelInteraction()
+    {
+    }
 }

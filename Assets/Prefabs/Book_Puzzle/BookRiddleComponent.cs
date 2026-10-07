@@ -8,6 +8,8 @@ public class BookRiddleComponent : MonoBehaviour, IInteractable
     [SerializeField] private int rotationDegrees = 30;
     public UnityEvent<BookRiddleComponent> OnInteract;
 
+    
+    
     private bool isMoving = false;
     private bool movingForward = true;
     private float rotationAmount = 0;
@@ -50,6 +52,16 @@ public class BookRiddleComponent : MonoBehaviour, IInteractable
     {
         OnInteract.Invoke(this);
         
+        isMoving = true;
+    }
+
+    public void CancelInteraction()
+    {
+    }
+
+    public void ReturnToStart()
+    {
+        movingForward = false;
         isMoving = true;
     }
 }
