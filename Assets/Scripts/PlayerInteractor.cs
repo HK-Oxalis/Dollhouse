@@ -20,12 +20,17 @@ public class PlayerInteractor : MonoBehaviour
         int layerMask = 1 << 7; 
         RaycastHit hit_Object;
 
-        if(Physics.Raycast(transform.position, transform.forward, out hit_Object, 2, layerMask)){
+        if(Physics.Raycast(transform.position, transform.forward, out hit_Object, 4, layerMask)){
             currentInteractable = hit_Object.transform;
             crosshair.style.opacity = 1;
         }
         else
         {
+            
+            IInteractable interaction = currentInteractable?.GetComponent<IInteractable>();
+            interaction?.CancelInteraction();
+            
+            currentInteractable = null;
             crosshair.style.opacity = 0;
         }
 
@@ -38,8 +43,8 @@ public class PlayerInteractor : MonoBehaviour
             return;
         }
         
-        IInteractable interaction = currentInteractable.GetComponent<IInteractable>();
+        IInteractable interaction = currentInteractable?.GetComponent<IInteractable>();
 
-        interaction.Interact();
+        interaction?.Interact();
     }
 }
