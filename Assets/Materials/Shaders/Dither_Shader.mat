@@ -26,9 +26,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _Colour_Depth: 20
-    - _Colour_Depth_Hue: 60
+    - _Colour_Depth_Hue: 120
     - _Colour_Depth_Saturation: 100
-    - _Colour_Depth_Value: 30
+    - _Colour_Depth_Value: 32
     - _Dither_Strength: 1.64
     - _Dither_Threshold: 1.06
     - _Value_Brightness_Offset: 1.7

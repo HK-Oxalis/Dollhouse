@@ -88,17 +88,24 @@ Shader "Custom/Dither_Shader"
                 return  circles;
             }
             
+            float2 Cylinder_Project(float2 coords, float3 direction)
+            {
+                float u = 0.5 + 0.5 * atan2(direction.x, - direction.z);
+                
+                return coords + (float2(u * -1, 0.5f + direction.y));
+            }
+            
             float4 Frag (Varyings input) : SV_Target
             {
                 float4 colour = SAMPLE_TEXTURE2D(_BlitTexture, sampler_LinearClamp, input.texcoord).rgba;
                 
                 float3 hsv_Colour = RgbToHsv(colour.rgb);
                 
-                float2 look_Dir = ((GetViewForwardDir().xy + 1) / 2);
+                float2 look_Dir = Cylinder_Project(input.texcoord, GetViewForwardDir());
                 
                 hsv_Colour.r = Quantise(hsv_Colour.r, _Colour_Depth_Hue);
                 //hsv_Colour.g = Quantise(hsv_Colour.g, _Colour_Depth_Saturation);
-                hsv_Colour.b = Quantise_Dithered(hsv_Colour.b, _Colour_Depth_Value, flower_Tex(look_Dir + input.texcoord), _Value_Brightness_Offset);
+                hsv_Colour.b = Quantise_Dithered(hsv_Colour.b, _Colour_Depth_Value, flower_Tex(look_Dir), _Value_Brightness_Offset);
                 
                 colour = float4(HsvToRgb(hsv_Colour).rgb, 1);
                 
