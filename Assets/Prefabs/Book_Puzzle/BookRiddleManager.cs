@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using System;
 
 public class BookRiddleManager : MonoBehaviour
@@ -8,6 +9,8 @@ public class BookRiddleManager : MonoBehaviour
     [SerializeField] private BookRiddleComponent[] books;
     [SerializeField] private Animator doorAnimator;
 
+    public UnityEvent OnPuzzleSolved;
+    
     private AudioSource audioSource;
     private int currentBookIndex;
     
@@ -45,8 +48,13 @@ public class BookRiddleManager : MonoBehaviour
             //Puzzle completed
             Debug.Log("Puzzle complete!");
             
-            doorAnimator.SetTrigger("Open");
-            audioSource.PlayOneShot(OpenDoorSound);
+            OnPuzzleSolved.Invoke();
         }
+    }
+
+    public void Open_Door()
+    {
+        doorAnimator.SetTrigger("Open");
+        audioSource.PlayOneShot(OpenDoorSound);
     }
 }
