@@ -23,6 +23,7 @@ public class MonsterVision : MonoBehaviour
     private Vector3 playerPosition;
     private Collider playerCollider;
 
+    //Checks if grace period is currently occurring
     private bool isGracePeriodActive;
     
 
@@ -31,6 +32,7 @@ public class MonsterVision : MonoBehaviour
     private Stopwatch lookTimer = new Stopwatch();
     private Stopwatch graceTimer = new Stopwatch();
 
+    //Time limits
     public float lookTime = 3f;
     public float startUpTime = 3f;
     public float gracePeriod = 2f;
@@ -46,20 +48,20 @@ public class MonsterVision : MonoBehaviour
         
     }
 
-    private void Update()
-    {
-        isGracePeriodActive = MonsterGracePeriod() != null;
-    }
-
     public void MonsterStartLooking()
     {
+        //Response to event
         StartCoroutine(MonsterStartUp());
     }
 
     public IEnumerator MonsterStartUp()
     {
+        //Start-up period for monster
+        //This will be when animation/sound effects occur
+        //Gives player time to react
         Debug.Log("Monster has started to activate");
         startTimer.Start();
+        //Monster doesn't start looking until start-up period is over
         while (startTimer.Elapsed < TimeSpan.FromSeconds(startUpTime)) {yield return null;}
         
         if (startTimer.Elapsed >= TimeSpan.FromSeconds(startUpTime)) {StartCoroutine(MonsterLook());}
@@ -87,7 +89,9 @@ public class MonsterVision : MonoBehaviour
                 //If there's nothing between the monster and player, the player is considered visible
                 if (hitInfo.collider == playerCollider)
                 {
+                    //Starts grace period
                     StartCoroutine(MonsterGracePeriod());
+                    //Code halted from execution until grace period ends
                     yield return new WaitUntil(() => !isGracePeriodActive);
                     lookTimer.Start();
                 }
@@ -106,10 +110,12 @@ public class MonsterVision : MonoBehaviour
     {
         isGracePeriodActive = true;
         lookTimer.Stop();
+        //Start timing grace period
         graceTimer.Start();
         Debug.Log("Grace Period started");
         while (graceTimer.Elapsed < TimeSpan.FromSeconds(gracePeriod)) {yield return null;}
 
+        //Send another raycast after the grace period ends to see if the player is still visible
         if (graceTimer.Elapsed >= TimeSpan.FromSeconds(gracePeriod))
         {
             if (Physics.Raycast(monsterTransform.position, 

@@ -159,16 +159,16 @@ MonoBehaviour:
   OnPuzzleSolved:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
+      - m_Target: {fileID: 195610710}
+        m_TargetAssemblyTypeName: MonsterVision, Assembly-CSharp
+        m_MethodName: MonsterStartLooking
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: monsterStartLooking
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!4 &18789289
@@ -657,6 +657,90 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190421539}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &195610710 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6667624528403071893, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
+  m_PrefabInstance: {fileID: 304584624}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb7928accfdcdd4fb46d9b9819f20e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterVision
+--- !u!1001 &304584624
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2012529022848576776, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
+      propertyPath: m_Name
+      value: MonsterHandler
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322821940223069397, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322821940223069397, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322821940223069397, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322821940223069397, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322821940223069397, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322821940223069397, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322821940223069397, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322821940223069397, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322821940223069397, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322821940223069397, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667624528403071893, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
+      propertyPath: BookRiddleManager
+      value: 
+      objectReference: {fileID: 18789288}
+    - target: {fileID: 8728710863568341981, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728710863568341981, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728710863568341981, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
 --- !u!1 &403361837
 GameObject:
   m_ObjectHideFlags: 0
@@ -3647,7 +3731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NoteComponent
   noteText: "What\u2019s in the little blue dollhouse? \nWhat\u2019s under the red-tiled
-    roof? \nWhat\u2019s behind the yellow curtains? \nWhat\u2019s in the red box?
+    roof? \nWhat\u2019s behind the yellow curtains? \nWhat\u2019s in the green box?
     \nIt\u2019s the special clockwork key! "
   uiTree: {fileID: 9197481963319205126, guid: 1afca138fe69ea64b9d9157720b5393c, type: 3}
   panelSettings: {fileID: 11400000, guid: 6224500d663110440ad8e8f4568c58f4, type: 2}
@@ -4929,3 +5013,4 @@ SceneRoots:
   - {fileID: 951460373}
   - {fileID: 403361838}
   - {fileID: 578926807}
+  - {fileID: 304584624}
