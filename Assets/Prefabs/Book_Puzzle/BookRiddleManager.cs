@@ -14,6 +14,9 @@ public class BookRiddleManager : MonoBehaviour
     private AudioSource audioSource;
     private int currentBookIndex;
     
+    bool puzzle_Solved = false;
+    bool door_Opened = false;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,13 +50,24 @@ public class BookRiddleManager : MonoBehaviour
         {
             //Puzzle completed
             Debug.Log("Puzzle complete!");
-            
+            puzzle_Solved = true;
             OnPuzzleSolved.Invoke();
+
+            foreach (BookRiddleComponent otherBook in books)
+            {
+                Destroy(otherBook);
+            }
         }
     }
 
     public void Open_Door()
     {
+        if (!puzzle_Solved || door_Opened)
+        {
+            return;
+        }
+        door_Opened = true;
+        
         doorAnimator.SetTrigger("Open");
         audioSource.PlayOneShot(OpenDoorSound);
     }

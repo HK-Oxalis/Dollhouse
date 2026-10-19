@@ -4,7 +4,7 @@ using System.Diagnostics;
 using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using Debug = UnityEngine.Debug;
 
@@ -12,11 +12,18 @@ public class MonsterVision : MonoBehaviour
 {
     //Define event
     [CanBeNull] public event Action MonsterSeesPlayer;
+    public UnityEvent MonsterStopsLooking;
+
+    [SerializeField] private AudioClip startUpSound;
+    [SerializeField] private AudioClip LookSound;
+    [SerializeField] private AudioClip gracePeriodSound;
     
     //Variables to access various components
     private GameObject monster;
     private Transform monsterTransform;
     private Vector3 monsterPosition;
+    
+    private AudioSource audioSource;
 
     private GameObject player;
     private Transform playerTransform;
@@ -46,6 +53,8 @@ public class MonsterVision : MonoBehaviour
         playerTransform = player.GetComponent<Transform>();
         playerCollider = player.GetComponent<Collider>();
         
+        audioSource = GetComponent<AudioSource>();
+        
     }
 
     public void MonsterStartLooking()
@@ -60,6 +69,7 @@ public class MonsterVision : MonoBehaviour
         //This will be when animation/sound effects occur
         //Gives player time to react
         Debug.Log("Monster has started to activate");
+        audioSource.PlayOneShot(startUpSound);
         startTimer.Start();
         //Monster doesn't start looking until start-up period is over
         while (startTimer.Elapsed < TimeSpan.FromSeconds(startUpTime)) {yield return null;}
@@ -72,6 +82,7 @@ public class MonsterVision : MonoBehaviour
     public IEnumerator MonsterLook()
     {
         Debug.Log("Monster started looking");
+        audioSource.PlayOneShot(LookSound);
         //Start timing monster's search period
         lookTimer.Start();
         //Monster searches for 3 seconds if the player isn't visible
@@ -103,6 +114,7 @@ public class MonsterVision : MonoBehaviour
         { 
             Debug.Log("Player wasn't seen");
             lookTimer.Reset();
+            MonsterStopsLooking.Invoke();
         }
     }
 
@@ -113,6 +125,7 @@ public class MonsterVision : MonoBehaviour
         //Start timing grace period
         graceTimer.Start();
         Debug.Log("Grace Period started");
+        audioSource.PlayOneShot(gracePeriodSound);
         while (graceTimer.Elapsed < TimeSpan.FromSeconds(gracePeriod)) {yield return null;}
 
         //Send another raycast after the grace period ends to see if the player is still visible
