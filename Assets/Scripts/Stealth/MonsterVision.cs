@@ -5,7 +5,6 @@ using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 using Debug = UnityEngine.Debug;
 
 public class MonsterVision : MonoBehaviour

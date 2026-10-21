@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //Rotate walk input because CharacterController.Move uses absolute position, not local
         Vector3 rotatedWalk = Quaternion.Euler(0, headTransform.localEulerAngles.y, 0) * walkInput;

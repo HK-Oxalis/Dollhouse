@@ -4099,7 +4099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1144691803357480986, guid: 65060a7327ee11b4e99bce12420eb1f5, type: 3}
       propertyPath: walkSpeed
-      value: 1000
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1280149667405387642, guid: 65060a7327ee11b4e99bce12420eb1f5, type: 3}
       propertyPath: m_LocalPosition.x
