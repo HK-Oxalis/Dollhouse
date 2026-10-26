@@ -1,0 +1,6 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Image source="project://database/Assets/Textures/Note_BG.png?fileID=2800000&amp;guid=fa8ce1939bffb494497520e6e47dd279&amp;type=3#Note_BG" style="flex-shrink: 0; flex-grow: 1; justify-content: center;">
+        <ui:Label text="You Died" style="align-self: center; font-size: 35px; -unity-font-style: bold;"/>
+        <ui:Button text="Try Again" style="align-self: center;"/>
+    </ui:Image>
+</ui:UXML>
