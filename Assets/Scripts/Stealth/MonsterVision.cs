@@ -17,6 +17,7 @@ public class MonsterVision : MonoBehaviour
     [SerializeField] private AudioClip LookSound;
     [SerializeField] private AudioClip gracePeriodSound;
     
+    
     //Variables to access various components
     private GameObject monster;
     private Transform monsterTransform;
@@ -28,6 +29,7 @@ public class MonsterVision : MonoBehaviour
     private Transform playerTransform;
     private Vector3 playerPosition;
     private Collider playerCollider;
+    private PlayerController playerController;
 
     //Checks if grace period is currently occurring
     private bool isGracePeriodActive;
@@ -49,7 +51,7 @@ public class MonsterVision : MonoBehaviour
         monsterTransform = monster.GetComponent<Transform>();
 
         player = GameObject.Find("Player");
-        playerTransform = player.GetComponent<Transform>();
+        playerTransform = GameObject.Find("/Player/Head").GetComponent<Transform>();
         playerCollider = player.GetComponent<Collider>();
         
         audioSource = GetComponent<AudioSource>();
@@ -90,7 +92,7 @@ public class MonsterVision : MonoBehaviour
             //Create raycast between monster and player to represent monster's sightline
             if (Physics.Raycast(monsterTransform.position,
                     monsterTransform.TransformDirection(playerTransform.position - monsterTransform.position),
-                    out RaycastHit hitInfo))
+                    out RaycastHit hitInfo, Mathf.Infinity, ~Physics.IgnoreRaycastLayer))
             {
                 //Draws ray for testing purposes
                 Debug.DrawRay(monsterTransform.position,
@@ -132,7 +134,7 @@ public class MonsterVision : MonoBehaviour
         {
             if (Physics.Raycast(monsterTransform.position, 
                     monsterTransform.TransformDirection(playerTransform.position - monsterTransform.position),
-                    out RaycastHit hitInfo2))
+                    out RaycastHit hitInfo2, Mathf.Infinity, ~Physics.IgnoreRaycastLayer))
             {
                 Debug.DrawRay(monsterTransform.position,
                     monsterTransform.TransformDirection(playerTransform.position - monsterTransform.position) *
