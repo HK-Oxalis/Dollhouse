@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class DoorOpeningInteraction : MonoBehaviour, IInteractable
 {
-    [SerializeField] private AnimationClip openingAnimation;
-    
     private Animator animator;
+
+    private bool isOpen = false;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -15,9 +15,17 @@ public class DoorOpeningInteraction : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        animator.Play(openingAnimation.name);
-        gameObject.layer = 1; 
-        Destroy(this);
+        isOpen = !isOpen;
+
+        if (isOpen)
+        {
+            animator.SetTrigger("Open");}
+        else
+        {
+            animator.SetTrigger("Close");
+        }
+        
+        
 
     }
     

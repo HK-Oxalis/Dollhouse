@@ -30,7 +30,7 @@ Material:
     - _Colour_Depth_Saturation: 100
     - _Colour_Depth_Value: 32
     - _Dither_Strength: 1.64
-    - _Dither_Threshold: 1.06
+    - _Dither_Threshold: 0.75
     - _Value_Brightness_Offset: 1.7
     m_Colors:
     - _col: {r: 0, g: 1, b: 1, a: 1}
