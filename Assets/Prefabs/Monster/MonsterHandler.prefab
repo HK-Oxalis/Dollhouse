@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6322821940223069397}
+  - component: {fileID: 4713976670166336109}
   m_Layer: 0
   m_Name: MonsterHandler
   m_TagString: Untagged
@@ -33,6 +34,28 @@ Transform:
   - {fileID: 6615184868812514630}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &4713976670166336109
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012529022848576776}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4c6a2929af1a6da44924315f377a5ecd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7114405591243141101
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,7 +105,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MonsterVision
   MonsterStopsLooking:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: BookRiddleManager, Assembly-CSharp
+        m_MethodName: Open_Door
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   startUpSound: {fileID: 8300000, guid: 4b61b34b7841a3c4cb71b0df548c204b, type: 3}
   LookSound: {fileID: 8300000, guid: 9916210ac29524449a2542c7398ec8e8, type: 3}
   gracePeriodSound: {fileID: 8300000, guid: ee210f116215e3c4e9539f8862d0477c, type: 3}
