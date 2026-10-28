@@ -22,6 +22,7 @@ public class MonsterVision : MonoBehaviour
     private GameObject monster;
     private Transform monsterTransform;
     private Vector3 monsterPosition;
+    private Animator monsterAnimator;
     
     private AudioSource audioSource;
 
@@ -47,8 +48,9 @@ public class MonsterVision : MonoBehaviour
     private void Start()
     {
         //Access the necessary components and store them
-        monster = GameObject.Find("Monster");
+        monster = GameObject.Find("MonsterHandler");
         monsterTransform = monster.GetComponent<Transform>();
+        monsterAnimator = monster.GetComponent<Animator>();
 
         player = GameObject.Find("Player");
         playerTransform = GameObject.Find("/Player/Head").GetComponent<Transform>();
@@ -71,6 +73,7 @@ public class MonsterVision : MonoBehaviour
         //Gives player time to react
         Debug.Log("Monster has started to activate");
         audioSource.PlayOneShot(startUpSound);
+        monsterAnimator.SetTrigger("MonsterActive");
         startTimer.Start();
         //Monster doesn't start looking until start-up period is over
         while (startTimer.Elapsed < TimeSpan.FromSeconds(startUpTime)) {yield return null;}
