@@ -148,6 +148,7 @@ public class MonsterVision : MonoBehaviour
                     //Invoke event for the PlayerSpotted script to handle detection
                     MonsterSeesPlayer?.Invoke();
                     lookTimer.Reset();
+                    Destroy(this);
                 }
             } 
         }

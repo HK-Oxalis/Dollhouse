@@ -237,6 +237,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6183559325966697081}
+        m_TargetAssemblyTypeName: PlayerInteractor, Assembly-CSharp
+        m_MethodName: CheckInteractables
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6b444451-8a00-4d00-a97e-f47457f736a8
     m_ActionName: 'Player/Look[/Mouse/delta,/Pen/delta]'
   - m_PersistentCalls:
@@ -248,7 +260,7 @@ MonoBehaviour:
       - m_Target: {fileID: 6183559325966697081}
         m_TargetAssemblyTypeName: PlayerInteractor, Assembly-CSharp
         m_MethodName: OnInteractionAttempt
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -361,8 +373,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835a8996cd9bcba46af662789bac5c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  cameraSensitivity: 5
-  walkSpeed: 2000
+  cameraSensitivity: 7
+  walkSpeed: 200
   headTransform: {fileID: 5214648664303749661}
 --- !u!1 &4779090649279574041
 GameObject:
