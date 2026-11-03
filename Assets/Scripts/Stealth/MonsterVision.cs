@@ -73,7 +73,7 @@ public class MonsterVision : MonoBehaviour
         //Gives player time to react
         Debug.Log("Monster has started to activate");
         audioSource.PlayOneShot(startUpSound);
-        monsterAnimator.SetTrigger("MonsterActive");
+        monsterAnimator.SetBool("MonsterActive", true);
         startTimer.Start();
         //Monster doesn't start looking until start-up period is over
         while (startTimer.Elapsed < TimeSpan.FromSeconds(startUpTime)) {yield return null;}
@@ -119,6 +119,7 @@ public class MonsterVision : MonoBehaviour
             Debug.Log("Player wasn't seen");
             lookTimer.Reset();
             MonsterStopsLooking.Invoke();
+            monsterAnimator.SetBool("MonsterActive", false);
         }
     }
 
