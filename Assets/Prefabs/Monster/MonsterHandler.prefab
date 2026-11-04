@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6322821940223069397}
-  - component: {fileID: 4713976670166336109}
+  - component: {fileID: 8370315248840195242}
   m_Layer: 0
   m_Name: MonsterHandler
   m_TagString: Untagged
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 6615184868812514630}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &4713976670166336109
+--- !u!95 &8370315248840195242
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
