@@ -12,6 +12,7 @@ public class MonsterVision : MonoBehaviour
     //Define event
     [CanBeNull] public event Action MonsterSeesPlayer;
     public UnityEvent MonsterStopsLooking;
+    public UnityEvent MonsterStartsLooking;
 
     [SerializeField] private AudioClip startUpSound;
     [SerializeField] private AudioClip LookSound;
@@ -34,17 +35,23 @@ public class MonsterVision : MonoBehaviour
 
     //Checks if grace period is currently occurring
     private bool isGracePeriodActive;
+    private bool isLooking;
     
 
     //Create stopwatchs used to time monster's searching period
     private Stopwatch startTimer = new Stopwatch();
     private Stopwatch lookTimer = new Stopwatch();
     private Stopwatch graceTimer = new Stopwatch();
+    
+    private Stopwatch cooldownTimer = new Stopwatch();
 
     //Time limits
     public float lookTime = 3f;
     public float startUpTime = 3f;
     public float gracePeriod = 2f;
+    
+    [SerializeField] private float cooldownTime = 5f;
+        
     private void Start()
     {
         //Access the necessary components and store them
@@ -57,6 +64,13 @@ public class MonsterVision : MonoBehaviour
         playerCollider = player.GetComponent<Collider>();
         
         audioSource = GetComponent<AudioSource>();
+        
+        GameObject[] spawnTriggers = GameObject.FindGameObjectsWithTag("SpawnTrigger");
+
+        foreach (GameObject spawnTrigger in spawnTriggers)
+        {
+            spawnTrigger.GetComponent<SpawnMonsterTrigger>().onSpawnSuccessful.AddListener(OnSpawn);
+        }
         
     }
 
@@ -74,7 +88,9 @@ public class MonsterVision : MonoBehaviour
         Debug.Log("Monster has started to activate");
         audioSource.PlayOneShot(startUpSound);
         monsterAnimator.SetBool("MonsterActive", true);
+        isLooking = true;
         startTimer.Start();
+        MonsterStartsLooking.Invoke();
         //Monster doesn't start looking until start-up period is over
         while (startTimer.Elapsed < TimeSpan.FromSeconds(startUpTime)) {yield return null;}
         
@@ -87,6 +103,7 @@ public class MonsterVision : MonoBehaviour
     {
         Debug.Log("Monster started looking");
         audioSource.PlayOneShot(LookSound);
+        
         //Start timing monster's search period
         lookTimer.Start();
         //Monster searches for 3 seconds if the player isn't visible
@@ -120,6 +137,9 @@ public class MonsterVision : MonoBehaviour
             lookTimer.Reset();
             MonsterStopsLooking.Invoke();
             monsterAnimator.SetBool("MonsterActive", false);
+            isLooking = false;
+            
+            cooldownTimer.Restart();
         }
     }
 
@@ -150,10 +170,21 @@ public class MonsterVision : MonoBehaviour
                     MonsterSeesPlayer?.Invoke();
                     lookTimer.Reset();
                     Destroy(this);
+                    isLooking = false;
                 }
             } 
         }
         graceTimer.Reset();
         isGracePeriodActive = false;
+    }
+
+    private void OnSpawn()
+    {
+        if (isLooking || cooldownTimer.Elapsed.Seconds < cooldownTime)
+        {
+            return;
+        }
+        
+        MonsterStartLooking();
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System;
 
-public class BookRiddleManager : MonoBehaviour
+public class ColourRiddleManager : MonoBehaviour
 {
     [SerializeField] private AudioClip interactSound;
     [SerializeField] private AudioClip OpenDoorSound;
@@ -70,5 +70,12 @@ public class BookRiddleManager : MonoBehaviour
         
         doorAnimator.SetTrigger("Open");
         audioSource.PlayOneShot(OpenDoorSound);
+
+        foreach (BookRiddleComponent book in books)
+        {
+            Destroy(book);
+        }
+        
+        Destroy(this);
     }
 }
