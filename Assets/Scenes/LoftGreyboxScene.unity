@@ -1882,40 +1882,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6667624528403071893, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
-      propertyPath: MonsterStopsLooking.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6667624528403071893, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
-      propertyPath: MonsterStopsLooking.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6667624528403071893, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
       propertyPath: MonsterStopsLooking.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 18789288}
-    - target: {fileID: 6667624528403071893, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
-      propertyPath: MonsterStopsLooking.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6667624528403071893, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
-      propertyPath: MonsterStopsLooking.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Open_Door
-      objectReference: {fileID: 0}
-    - target: {fileID: 6667624528403071893, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
-      propertyPath: MonsterStopsLooking.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BookRiddleManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6667624528403071893, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
-      propertyPath: MonsterStopsLooking.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2012529022848576776, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1891039485}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
 --- !u!1001 &393451850
 PrefabInstance:
@@ -9418,33 +9391,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d52ca50131b1f4cb7effd6cd3ed29e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BookRiddleComponent
---- !u!1 &1891039484 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2012529022848576776, guid: 6146ad38127e0fb4e965747ac4f19449, type: 3}
-  m_PrefabInstance: {fileID: 304584624}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1891039485
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1891039484}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4c6a2929af1a6da44924315f377a5ecd, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1908756494
 GameObject:
   m_ObjectHideFlags: 0
