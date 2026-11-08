@@ -2,6 +2,9 @@ Shader "Custom/Dither_Shader"
 {
     Properties
     {
+        _Dither_Texture("Dither pattern texture", 2D) = "white" {}
+        _Texture_Multiplier("Texture scroll multiplier", float) = 1
+        
         _Colour_Depth_Hue("Hue Colour depth", Int) = 5
         //_Colour_Depth_Saturation("Saturation Colour depth", Int) = 64
         _Colour_Depth_Value("Value Colour depth", Int) = 10
@@ -9,6 +12,7 @@ Shader "Custom/Dither_Shader"
         
         _Dither_Threshold("Dither threshold", float) = 0.5
         _Dither_Strength("Dither pattern strength", float) = 10
+        
         
     }
     
@@ -30,6 +34,9 @@ Shader "Custom/Dither_Shader"
             
             #pragma vertex Vert
             #pragma fragment Frag
+            
+            TEXTURE2D(_Dither_Texture);
+            uniform float _Texture_Multiplier;
             
             uniform int _Colour_Depth_Hue;
             uniform int _Colour_Depth_Saturation;
@@ -105,11 +112,11 @@ Shader "Custom/Dither_Shader"
                 
                 hsv_Colour.r = Quantise(hsv_Colour.r, _Colour_Depth_Hue);
                 //hsv_Colour.g = Quantise(hsv_Colour.g, _Colour_Depth_Saturation);
-                hsv_Colour.b = Quantise_Dithered(hsv_Colour.b, _Colour_Depth_Value, flower_Tex(look_Dir), _Value_Brightness_Offset);
+                
+                float dither_Value = SAMPLE_TEXTURE2D(_Dither_Texture, sampler_LinearRepeat, look_Dir * _Texture_Multiplier);//flower_Tex(look_Dir);
+                hsv_Colour.b = Quantise_Dithered(hsv_Colour.b, _Colour_Depth_Value, dither_Value, _Value_Brightness_Offset);
                 
                 colour = float4(HsvToRgb(hsv_Colour).rgb, 1);
-                
-                //colour.r = look_Dir.y;
                 
                 return colour;
             }
