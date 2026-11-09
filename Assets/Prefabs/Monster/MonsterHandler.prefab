@@ -118,12 +118,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  MonsterStartsLooking:
+    m_PersistentCalls:
+      m_Calls: []
   startUpSound: {fileID: 8300000, guid: 4b61b34b7841a3c4cb71b0df548c204b, type: 3}
   LookSound: {fileID: 8300000, guid: 9916210ac29524449a2542c7398ec8e8, type: 3}
   gracePeriodSound: {fileID: 8300000, guid: ee210f116215e3c4e9539f8862d0477c, type: 3}
   lookTime: 6
   startUpTime: 5
   gracePeriod: 2
+  cooldownTime: 5
 --- !u!114 &2486527456224873295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,13 +264,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8723625481458093280}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.93, y: 8.090793, z: 5.93}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: -3.65, z: 0}
+  m_LocalScale: {x: 16.832304, y: 22.965715, z: 16.832304}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6322821940223069397}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &6890900004116028947
 MeshFilter:
   m_ObjectHideFlags: 0

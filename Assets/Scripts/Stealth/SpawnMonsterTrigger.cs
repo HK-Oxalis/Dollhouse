@@ -4,20 +4,9 @@ using UnityEngine.Events;
 public class SpawnMonsterTrigger : MonoBehaviour
 {
     [SerializeField] private float spawnChance = 0.4f;
+    [SerializeField] private Transform spawnPoint;
 
-    public UnityEvent onSpawnSuccessful;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public UnityEvent<Vector3> onSpawnSuccessful;
 
     void OnTriggerEnter(Collider other)
     {
@@ -30,7 +19,7 @@ public class SpawnMonsterTrigger : MonoBehaviour
 
         if (roll < spawnChance)
         {
-            onSpawnSuccessful.Invoke();
+            onSpawnSuccessful.Invoke(spawnPoint.position);
         }
     }
 }

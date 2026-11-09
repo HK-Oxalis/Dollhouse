@@ -14,6 +14,8 @@ public class MonsterVision : MonoBehaviour
     public UnityEvent MonsterStopsLooking;
     public UnityEvent MonsterStartsLooking;
 
+    
+    //Sound variables
     [SerializeField] private AudioClip startUpSound;
     [SerializeField] private AudioClip LookSound;
     [SerializeField] private AudioClip gracePeriodSound;
@@ -36,7 +38,6 @@ public class MonsterVision : MonoBehaviour
     //Checks if grace period is currently occurring
     private bool isGracePeriodActive;
     private bool isLooking;
-    
 
     //Create stopwatchs used to time monster's searching period
     private Stopwatch startTimer = new Stopwatch();
@@ -72,11 +73,14 @@ public class MonsterVision : MonoBehaviour
             spawnTrigger.GetComponent<SpawnMonsterTrigger>().onSpawnSuccessful.AddListener(OnSpawn);
         }
         
+        cooldownTimer.Start();
+        
     }
 
     public void MonsterStartLooking()
     {
         //Response to event
+        
         StartCoroutine(MonsterStartUp());
     }
 
@@ -178,12 +182,14 @@ public class MonsterVision : MonoBehaviour
         isGracePeriodActive = false;
     }
 
-    private void OnSpawn()
+    private void OnSpawn(Vector3 spawnPoint)
     {
         if (isLooking || cooldownTimer.Elapsed.Seconds < cooldownTime)
         {
             return;
         }
+        
+        monsterAnimator.transform.parent.position = spawnPoint;
         
         MonsterStartLooking();
     }

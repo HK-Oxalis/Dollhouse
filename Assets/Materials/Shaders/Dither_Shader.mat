@@ -22,15 +22,20 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _Dither_Texture:
+        m_Texture: {fileID: 2800000, guid: 4889ff0c3c512f543894073816bf6709, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _Colour_Depth: 20
     - _Colour_Depth_Hue: 120
     - _Colour_Depth_Saturation: 100
     - _Colour_Depth_Value: 32
-    - _Dither_Strength: 1.64
+    - _Dither_Strength: 4.35
     - _Dither_Threshold: 0.75
+    - _Texture_Multiplier: 5
     - _Value_Brightness_Offset: 1.7
     m_Colors:
     - _col: {r: 0, g: 1, b: 1, a: 1}
