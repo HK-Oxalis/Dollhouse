@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -15,6 +16,7 @@ public class PickUpBook : MonoBehaviour, IInteractable
         //Set above references
         hand = GameObject.Find("Hand");
         handScript = hand.GetComponent<IsHoldingBook>();
+        hand.GetComponent<Variables>();
     }
 
     public void Interact()
