@@ -57,6 +57,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8473923385198759879, guid: 954c5cd9bb769ac4b80f5875fe24bff1, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 8473923385198759879, guid: 954c5cd9bb769ac4b80f5875fe24bff1, type: 3}
       propertyPath: m_Name
       value: BookPos Empty Variant
       objectReference: {fileID: 0}
