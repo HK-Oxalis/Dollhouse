@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Image style="flex-grow: 1; flex-shrink: 0;">
+        <ui:VisualElement name="Menu" style="flex-grow: 1; justify-content: center; align-items: center;">
+            <ui:Label text="Dollhouse" style="font-size: 25%;"/>
+            <ui:VisualElement style="flex-grow: 0.1;"/>
+            <ui:Button text="Start" name="StartButton"/>
+        </ui:VisualElement>
+    </ui:Image>
+</ui:UXML>

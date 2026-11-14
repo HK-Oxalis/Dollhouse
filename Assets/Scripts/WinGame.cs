@@ -17,7 +17,7 @@ public class WinGame : MonoBehaviour
     {
         winUI.rootVisualElement.visible = true;
         
-        winUI.rootVisualElement.Q<Button>().RegisterCallback<ClickEvent>(evt => EndGame() );
+        winUI.rootVisualElement.Q<Button>().clicked += EndGame;
         
         Cursor.lockState = CursorLockMode.Confined;
         Time.timeScale = 0;

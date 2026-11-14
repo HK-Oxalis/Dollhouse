@@ -24,7 +24,7 @@ public class PlayerSpotted : MonoBehaviour
         Debug.Log("You've been spotted!");
         deathUI.rootVisualElement.visible = true;
         
-        deathUI.rootVisualElement.Q<Button>().RegisterCallback<ClickEvent>(evt => ReloadGame() );
+        deathUI.rootVisualElement.Q<Button>().clicked += ReloadGame;
 
         Cursor.lockState = CursorLockMode.Confined;
         Time.timeScale = 0;
