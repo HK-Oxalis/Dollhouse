@@ -4,6 +4,7 @@
             <ui:Label text="Dollhouse" style="font-size: 25%;"/>
             <ui:VisualElement style="flex-grow: 0.1;"/>
             <ui:Button text="Start" name="StartButton"/>
+            <ui:Button text="Options" name="OptionsButton"/>
         </ui:VisualElement>
     </ui:Image>
 </ui:UXML>

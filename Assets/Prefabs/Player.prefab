@@ -324,6 +324,7 @@ Transform:
   m_Children:
   - {fileID: 5214648664303749661}
   - {fileID: 5424071357246877872}
+  - {fileID: 6721426997855126017}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5158920578927880637
@@ -499,7 +500,19 @@ MonoBehaviour:
     m_ActionId: 7607c7b6-cd76-4816-beef-bd0341cfe950
     m_ActionName: 'UI/Submit[/Keyboard/enter]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1144691803357480986}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 15cef263-9014-4fd5-94d9-4e4a6234a6ef
     m_ActionName: 'UI/Cancel[/Keyboard/escape]'
   - m_PersistentCalls:
@@ -574,6 +587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   cameraSensitivity: 7
   walkSpeed: 200
+  pauseMenu: {fileID: 4257662904408683160}
   headTransform: {fileID: 5214648664303749661}
 --- !u!1 &4779090649279574041
 GameObject:
@@ -714,3 +728,70 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1001 &8806648972338188527
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1280149667405387642}
+    m_Modifications:
+    - target: {fileID: 2841998596678013678, guid: e0e19879ca817e94ebfef42cd741f80d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.17986
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841998596678013678, guid: e0e19879ca817e94ebfef42cd741f80d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.307
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841998596678013678, guid: e0e19879ca817e94ebfef42cd741f80d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.17424
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841998596678013678, guid: e0e19879ca817e94ebfef42cd741f80d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841998596678013678, guid: e0e19879ca817e94ebfef42cd741f80d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841998596678013678, guid: e0e19879ca817e94ebfef42cd741f80d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841998596678013678, guid: e0e19879ca817e94ebfef42cd741f80d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841998596678013678, guid: e0e19879ca817e94ebfef42cd741f80d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841998596678013678, guid: e0e19879ca817e94ebfef42cd741f80d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841998596678013678, guid: e0e19879ca817e94ebfef42cd741f80d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4693244831062155895, guid: e0e19879ca817e94ebfef42cd741f80d, type: 3}
+      propertyPath: m_Name
+      value: OptionsMenu
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e0e19879ca817e94ebfef42cd741f80d, type: 3}
+--- !u!1 &4257662904408683160 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4693244831062155895, guid: e0e19879ca817e94ebfef42cd741f80d, type: 3}
+  m_PrefabInstance: {fileID: 8806648972338188527}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6721426997855126017 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2841998596678013678, guid: e0e19879ca817e94ebfef42cd741f80d, type: 3}
+  m_PrefabInstance: {fileID: 8806648972338188527}
+  m_PrefabAsset: {fileID: 0}

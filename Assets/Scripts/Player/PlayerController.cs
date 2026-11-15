@@ -6,10 +6,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float cameraSensitivity = 1;
     [SerializeField] private float walkSpeed = 5;
 
+    [SerializeField] private GameObject pauseMenu;
     [SerializeField] private Transform headTransform;
     
     private Vector3 walkInput;
     private CharacterController controller;
+    
+    private bool isPaused = false;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -43,4 +47,23 @@ public class PlayerController : MonoBehaviour
 
         walkInput = new Vector3(input.x, 0, input.y);
     }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        isPaused = !isPaused;
+
+        if (isPaused)
+        {
+            Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;
+            pauseMenu.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            Cursor.lockState = CursorLockMode.Locked;
+            pauseMenu.SetActive(false);
+        }
+    }
+    
 }

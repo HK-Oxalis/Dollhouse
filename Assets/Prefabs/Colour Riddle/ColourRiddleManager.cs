@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using UnityEngine.Audio;
 
 public class ColourRiddleManager : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class ColourRiddleManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource = gameObject.GetComponent<AudioSource>();
+        
         foreach (BookRiddleComponent book in books)
         {
             book.OnInteract.AddListener(OnBookInteracted);
