@@ -12,6 +12,6 @@ public class FrontDoorOpen : MonoBehaviour
     
     private void OnPuzzleCompleted()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

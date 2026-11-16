@@ -37,10 +37,9 @@ public class BookPuzzleManager : MonoBehaviour
         //If we make it through the loop once without booksCorrect being set to false, the puzzle is completed
         if (booksCorrect)
         {
-            //BookPuzzleCompleted.Invoke();
+            BookPuzzleCompleted?.Invoke();
             Debug.Log("Puzzle completed");
             puzzleCompleted = true;
         }
-
     }
 }
