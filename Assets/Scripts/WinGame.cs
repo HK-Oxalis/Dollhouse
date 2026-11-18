@@ -13,7 +13,7 @@ public class WinGame : MonoBehaviour
         winUI.rootVisualElement.visible = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void Win()
     {
         winUI.rootVisualElement.visible = true;
         
