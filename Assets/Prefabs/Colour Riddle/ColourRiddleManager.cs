@@ -34,6 +34,8 @@ public class ColourRiddleManager : MonoBehaviour
     {
         int bookIndex = Array.IndexOf(books, book);
 
+        audioSource.PlayOneShot(interactSound);
+        
         if (bookIndex != currentBookIndex)
         {
             //Incorrect input, reset puzzle
@@ -48,6 +50,7 @@ public class ColourRiddleManager : MonoBehaviour
         }
 
         currentBookIndex++;
+        
         if (currentBookIndex >= books.Length)
         {
             //Puzzle completed

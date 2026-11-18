@@ -16,7 +16,6 @@ public class BookRiddleComponent : MonoBehaviour, IInteractable
     {
         if(OnInteract == null){ OnInteract = new UnityEvent<BookRiddleComponent>(); }
         
-        audioSource = gameObject.AddComponent<AudioSource>();
         
         animator = gameObject.GetComponent<Animator>();
     }
@@ -32,8 +31,6 @@ public class BookRiddleComponent : MonoBehaviour, IInteractable
         animator.SetTrigger("Interact");
         
         OnInteract.Invoke(this);
-        
-        audioSource.PlayOneShot(interactSound);
 
     }
 

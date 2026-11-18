@@ -12,6 +12,7 @@ public class PlayerInteractor : MonoBehaviour
     
     private Transform currentInteractable;
     private Image crosshair;
+    private AudioSource audioSource;
     
     private Stopwatch cooldownTimer = new Stopwatch();
 
@@ -19,6 +20,8 @@ public class PlayerInteractor : MonoBehaviour
     {
         crosshair = crosshairUI.rootVisualElement.Q<Image>("crosshair");
         cooldownTimer.Start();
+        
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void CheckInteractables(InputAction.CallbackContext context){
@@ -57,6 +60,11 @@ public class PlayerInteractor : MonoBehaviour
         cooldownTimer.Restart();
         
         IInteractable interaction = currentInteractable?.GetComponent<IInteractable>();
+
+        if (interaction == null)
+        {
+            audioSource.PlayOneShot(audioSource.clip);
+        }
 
         interaction?.Interact();
     }
