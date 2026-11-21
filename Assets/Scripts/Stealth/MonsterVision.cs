@@ -51,7 +51,7 @@ public class MonsterVision : MonoBehaviour
     public float startUpTime = 3f;
     public float gracePeriod = 2f;
     
-    [SerializeField] private float cooldownTime = 5f;
+    [SerializeField] private float spawnCooldownTime = 20f;
         
     private void Start()
     {
@@ -184,7 +184,7 @@ public class MonsterVision : MonoBehaviour
 
     private void OnSpawn(Vector3 spawnPoint)
     {
-        if (isLooking || cooldownTimer.Elapsed.Seconds < cooldownTime)
+        if (isLooking || cooldownTimer.Elapsed.Seconds < spawnCooldownTime)
         {
             return;
         }
