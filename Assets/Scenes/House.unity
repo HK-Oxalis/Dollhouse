@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff15432f08e9b8d45809815af05f553e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnMonsterTrigger
-  spawnChance: 0.4
+  spawnChance: 0.1
   spawnPoint: {fileID: 1669577450}
   onSpawnSuccessful:
     m_PersistentCalls:
@@ -12180,7 +12180,7 @@ Transform:
   m_GameObject: {fileID: 595974724}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.38, y: 3.62, z: -9}
+  m_LocalPosition: {x: -4.02, y: 2.39, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31486,7 +31486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff15432f08e9b8d45809815af05f553e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnMonsterTrigger
-  spawnChance: 0.6
+  spawnChance: 0.3
   spawnPoint: {fileID: 1701270469}
   onSpawnSuccessful:
     m_PersistentCalls:
@@ -35193,7 +35193,7 @@ Transform:
   m_GameObject: {fileID: 1748890493}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.415, y: -9.84, z: -10.06}
+  m_LocalPosition: {x: -6.53, y: -9.84, z: -16.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -41613,7 +41613,7 @@ Transform:
   m_GameObject: {fileID: 2023257354}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.42, y: -11.65, z: -17.26}
+  m_LocalPosition: {x: 12.27, y: -11.65, z: -15.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -41656,8 +41656,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 14.64414, y: 5.098293, z: 3.478447}
-  m_Center: {x: 0.4403715, y: 0.09600711, z: 0.27565956}
+  m_Size: {x: 6.0487924, y: 5.098293, z: 3.478447}
+  m_Center: {x: -3.8573024, y: 0.09600711, z: 0.27565956}
 --- !u!1001 &2027457792
 PrefabInstance:
   m_ObjectHideFlags: 0
