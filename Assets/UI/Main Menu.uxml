@@ -1,7 +1,9 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Image style="flex-grow: 1; flex-shrink: 0;">
+    <ui:Image style="flex-grow: 1; flex-shrink: 0; -unity-font-definition: url(&quot;project://database/Assets/UI/SueEllenFrancisco-Regular.ttf?fileID=12800000&amp;guid=8860f5864b654fc4da7819ae797aa752&amp;type=3#SueEllenFrancisco-Regular&quot;); font-size: 45%;">
         <ui:VisualElement name="Menu" style="flex-grow: 1; justify-content: center; align-items: center;">
-            <ui:Label text="Dollhouse" style="font-size: 25%;"/>
+            <ui:VisualElement style="flex-grow: 0; background-color: rgba(156, 156, 156, 0.769);">
+                <ui:Label text="DOLLHOUSE" name="Label" style="font-size: 40%; -unity-font-definition: url(&quot;project://database/Assets/UI/SueEllenFrancisco-Regular.ttf?fileID=12800000&amp;guid=8860f5864b654fc4da7819ae797aa752&amp;type=3#SueEllenFrancisco-Regular&quot;);"/>
+            </ui:VisualElement>
             <ui:VisualElement style="flex-grow: 0.1;"/>
             <ui:Button text="Start" name="StartButton"/>
             <ui:Button text="Options" name="OptionsButton"/>

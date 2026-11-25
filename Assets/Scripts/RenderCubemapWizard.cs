@@ -7,6 +7,7 @@ public class RenderCubemapWizard : ScriptableWizard
 {
     public Transform renderFromPosition;
     public Cubemap cubemap;
+    public float fieldOfView = 90;
 
     void OnWizardUpdate()
     {
@@ -18,12 +19,15 @@ public class RenderCubemapWizard : ScriptableWizard
     {
         // create temporary camera for rendering
         GameObject go = new GameObject("CubemapCamera");
-        go.AddComponent<Camera>();
+        Camera cam = go.AddComponent<Camera>();
+
+        cam.fieldOfView = fieldOfView;
+        
         // place it on the object
         go.transform.position = renderFromPosition.position;
         go.transform.rotation = Quaternion.identity;
         // render into cubemap
-        go.GetComponent<Camera>().RenderToCubemap(cubemap);
+        cam.RenderToCubemap(cubemap);
 
         // destroy temporary camera
         DestroyImmediate(go);
