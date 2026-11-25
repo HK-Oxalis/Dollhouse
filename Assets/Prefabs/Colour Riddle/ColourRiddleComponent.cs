@@ -2,10 +2,10 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class BookRiddleComponent : MonoBehaviour, IInteractable
+public class ColourRiddleComponent : MonoBehaviour, IInteractable
 {
 
-    public UnityEvent<BookRiddleComponent> OnInteract;
+    public UnityEvent<ColourRiddleComponent> OnInteract;
     public AudioClip interactSound;
     
     private AudioSource audioSource;
@@ -14,7 +14,7 @@ public class BookRiddleComponent : MonoBehaviour, IInteractable
     
     public void Awake()
     {
-        if(OnInteract == null){ OnInteract = new UnityEvent<BookRiddleComponent>(); }
+        if(OnInteract == null){ OnInteract = new UnityEvent<ColourRiddleComponent>(); }
         
         
         animator = gameObject.GetComponent<Animator>();
