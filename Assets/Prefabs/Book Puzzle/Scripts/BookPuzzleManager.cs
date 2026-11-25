@@ -22,7 +22,6 @@ public class BookPuzzleManager : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.Play();
     }
 
     // Update is called once per frame
@@ -36,7 +35,6 @@ public class BookPuzzleManager : MonoBehaviour
         booksCorrect = true;
         foreach (GameObject shelf in shelves)
         {
-            audioSource.PlayOneShot(completeSound);
             if (!shelf.GetComponent<BookPosChecker>().correctBookPlaced)
             {
                 booksCorrect = false;
