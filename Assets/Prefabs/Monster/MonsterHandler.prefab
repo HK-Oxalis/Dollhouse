@@ -396,9 +396,9 @@ MonoBehaviour:
   MonsterStartsLooking:
     m_PersistentCalls:
       m_Calls: []
-  startUpSound: {fileID: 8300000, guid: 4b61b34b7841a3c4cb71b0df548c204b, type: 3}
+  startUpSound: {fileID: 8300000, guid: cb293f4fd680b7b4aaee6d07376c1010, type: 3}
   LookSound: {fileID: 8300000, guid: 9916210ac29524449a2542c7398ec8e8, type: 3}
-  gracePeriodSound: {fileID: 8300000, guid: ee210f116215e3c4e9539f8862d0477c, type: 3}
+  gracePeriodSound: {fileID: 8300000, guid: 0a7824ef2cce9e24d878fedb96d60f27, type: 3}
   lookTime: 6
   startUpTime: 5
   gracePeriod: 2

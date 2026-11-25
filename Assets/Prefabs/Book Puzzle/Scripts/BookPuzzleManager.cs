@@ -11,10 +11,18 @@ public class BookPuzzleManager : MonoBehaviour
     //Stores all the shelves
     //Add these references in the editor
     public List<GameObject> shelves;
+    [SerializeField] private AudioClip completeSound;
 
+    private AudioSource audioSource;
+    
     private bool puzzleCompleted;
 
     private bool booksCorrect;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -37,6 +45,8 @@ public class BookPuzzleManager : MonoBehaviour
         //If we make it through the loop once without booksCorrect being set to false, the puzzle is completed
         if (booksCorrect)
         {
+            audioSource.Play();
+            
             BookPuzzleCompleted?.Invoke();
             Debug.Log("Puzzle completed");
             puzzleCompleted = true;

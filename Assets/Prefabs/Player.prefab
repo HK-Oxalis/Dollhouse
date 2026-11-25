@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 5424071357246877872}
   - component: {fileID: 6031829667281118261}
   m_Layer: 5
-  m_Name: UIDocument
+  m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -300,8 +300,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 5895662242023270450, guid: bd9b6840dab03dd4f8efb364a19bafc9, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 3ead6549067d55a43b30fa05ab054a50, type: 3}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: 9496fd4c63340e14d803030477db280c, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

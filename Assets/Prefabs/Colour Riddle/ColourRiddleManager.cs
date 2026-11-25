@@ -6,8 +6,9 @@ using UnityEngine.Audio;
 public class ColourRiddleManager : MonoBehaviour
 {
     [SerializeField] private AudioClip interactSound;
+    [SerializeField] private AudioClip puzzleFailSound;
     [SerializeField] private AudioClip OpenDoorSound;
-    [SerializeField] private BookRiddleComponent[] books;
+    [SerializeField] private ColourRiddleComponent[] books;
     [SerializeField] private Animator doorAnimator;
 
     public UnityEvent OnPuzzleSolved;
@@ -23,33 +24,34 @@ public class ColourRiddleManager : MonoBehaviour
     {
         audioSource = gameObject.GetComponent<AudioSource>();
         
-        foreach (BookRiddleComponent book in books)
+        foreach (ColourRiddleComponent book in books)
         {
             book.OnInteract.AddListener(OnBookInteracted);
             book.interactSound = interactSound;
         }
     }
 
-    private void OnBookInteracted(BookRiddleComponent book)
+    private void OnBookInteracted(ColourRiddleComponent colour)
     {
-        int bookIndex = Array.IndexOf(books, book);
-
-        audioSource.PlayOneShot(interactSound);
+        int bookIndex = Array.IndexOf(books, colour);
         
         if (bookIndex != currentBookIndex)
         {
             //Incorrect input, reset puzzle
             Debug.Log("Puzzle failed, resetting");
             currentBookIndex = 0;
-            foreach (BookRiddleComponent otherBook in books)
+            foreach (ColourRiddleComponent otherBook in books)
             {
                 otherBook.ReturnToStart();
             }
+            
+            audioSource.PlayOneShot(puzzleFailSound);
             
             return;
         }
 
         currentBookIndex++;
+        audioSource.PlayOneShot(interactSound);
         
         if (currentBookIndex >= books.Length)
         {
@@ -58,7 +60,7 @@ public class ColourRiddleManager : MonoBehaviour
             puzzle_Solved = true;
             OnPuzzleSolved.Invoke();
 
-            foreach (BookRiddleComponent otherBook in books)
+            foreach (ColourRiddleComponent otherBook in books)
             {
                 Destroy(otherBook);
             }
@@ -76,7 +78,7 @@ public class ColourRiddleManager : MonoBehaviour
         doorAnimator.SetTrigger("Open");
         audioSource.PlayOneShot(OpenDoorSound);
 
-        foreach (BookRiddleComponent book in books)
+        foreach (ColourRiddleComponent book in books)
         {
             Destroy(book);
         }
